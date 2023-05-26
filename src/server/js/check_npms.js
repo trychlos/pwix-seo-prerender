@@ -1,5 +1,5 @@
 /*
- * pwix:package-template/src/server/js/check_npms.js
+ * pwix:ssr/src/server/js/check_npms.js
  */
 
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
@@ -11,5 +11,5 @@ if( false ){
 
 checkNpmVersions({
 },
-    'pwix:package-template'
+    'pwix:ssr'
 );

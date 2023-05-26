@@ -1,3 +1,3 @@
 /*
- * pwix:package-template/src/common/js/index.js
+ * pwix:ssr/src/common/js/index.js
  */

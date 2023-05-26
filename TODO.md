@@ -1,4 +1,4 @@
-# package-template - TODO
+# ssr - TODO
 
 ## Summary
 
