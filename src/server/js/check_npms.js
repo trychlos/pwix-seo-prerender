@@ -10,6 +10,7 @@ if( false ){
 }
 
 checkNpmVersions({
+    'prerender-node': '^3.7.0'
 },
     'pwix:ssr'
 );

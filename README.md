@@ -14,6 +14,7 @@ Instead we check npm versions of installed packages at runtime, on server startu
 
 Dependencies as of v 1.0.0:
 ```
+    'prerender-node': '^3.7.0'
 ```
 
 Each of these dependencies should be installed at application level:
