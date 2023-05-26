@@ -2,7 +2,7 @@ Package.describe({
     name: 'pwix:ssr',
     version: '0.1.0',
     // Brief, one-line summary of the package.
-    summary: '',
+    summary: ' A Meteor package which manages static rendering and its storage, through a renderer server, for SEO puposes.',
     // URL to the Git repository containing the source code for this package.
     git: '',
     // By default, Meteor will default to using README.md for documentation.
@@ -13,7 +13,9 @@ Package.describe({
 Package.onUse( function( api ){
     configure( api );
     api.export([
-        'SSR'
+        'SSR',
+        'SSR_VERBOSE_NONE',
+        'SSR_VERBOSE_CONFIGURE'
     ]);
     api.mainModule( 'src/server/js/index.js', 'server' );
 });

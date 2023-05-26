@@ -4,7 +4,27 @@
 
 ## Configuration
 
-The package's behavior can be configured through a call to the `xx.configure()` method, with just a single javascript object argument, which itself should only contains the options you want override.
+The package's behavior can be configured through a call to the `SSR.configure()` method, with just a single javascript object argument, which itself should only contains the options you want override.
+
+Known configuration options are:
+
+- `verbosity`
+
+    Define the expected verbosity level.
+
+    The accepted value can be any or-ed combination of following:
+
+    - `SSR_VERBOSE_NONE`
+
+        Do not display any trace log to the console
+
+    - `SSR_VERBOSE_CONFIGURE`
+
+        Trace `SSR.configure()` calls and their result
+
+Please note that `SSR.configure()` method should be called in the same terms both in client and server sides.
+
+Also note, as an explicit reminder, that, because the Meteor packages are instanciated at application level, they should be configured at most once, and only once at most. Each addtionnal call to `SSR.configure()` will just override the previous one. You have been warned: **only the application should configure a package**.
 
 ## NPM peer dependencies
 
@@ -28,9 +48,7 @@ New and updated translations are willingly accepted, and more than welcome. Just
 
 ## Cookies and comparable technologies
 
-`pwix:ssr` may use `localStorage` to record ...
-
-Because this is dynamically done on a per dialog basis, and only on the caller request, the package doesn't advertize of this use, relying on the caller own declaration.
+As a server-side only package, this one doesn't use any cookie.
 
 ---
 P. Wieser
