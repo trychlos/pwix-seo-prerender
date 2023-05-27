@@ -3,5 +3,6 @@
  */
 
 SSR._defaults = {
+    collectionsPrefix: 'ssr_',
     verbosity: SSR_VERBOSE_NONE
 };

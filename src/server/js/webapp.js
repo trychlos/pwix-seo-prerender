@@ -9,7 +9,7 @@ const prerender = require( '../lib' );
 WebApp.connectHandlers.use(( req, res, next ) => {
 
     // test if we are prerendering...
-    SSR.isPrerender( req.headers && req.headers['x-prerender'] );
+    SSR._server.setPrerender( req.headers && req.headers['x-prerender'] );
 
     // we rely on PRERENDER_SERVICE_URL environment variable, required by prerender-node package
     if( process.env.PRERENDER_SERVICE_URL ){

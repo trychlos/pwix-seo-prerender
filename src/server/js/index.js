@@ -3,10 +3,9 @@
  */
 
 import '../../common/js/index.js';
+import './server.js';
 
 import './check_npms.js';
-import './methods.js';
-import './server.js';
-import './isbot.js';
-import './isprerender.js';
+import './collections.js';
+import './startup.js';
 import './webapp.js';

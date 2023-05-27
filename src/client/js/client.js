@@ -2,4 +2,8 @@
  * pwix:ssr/src/client/js/client.js
  */
 
-SSR._client = {};
+import { ReactiveVar } from 'meteor/reactive-var';
+
+SSR._client = {
+    collectionsReady: new ReactiveVar( false )
+};

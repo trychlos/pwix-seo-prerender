@@ -1,5 +1,5 @@
 /*
- * pwix:ssr/src/client/js/isprerendering.js
+ * pwix:ssr/src/client/js/isprerender.js
  *
  * SSR.isPrerendering() is a reactive datasource which evaluates to true when current rendering is asked by the prerender service.
  */
@@ -7,26 +7,30 @@
 import { Tracker } from 'meteor/tracker';
 
 SSR._client.isPrerender = {
-    value: null,
+    handle: Meteor.subscribe( 'ssr.one', STATUS_PRERENDER ),
+    value: false,
     dep: new Tracker.Dependency()
 };
 
 Tracker.autorun(() => {
-    Meteor.call( 'ssr.isPrerender', ( err, res ) => {
-        if( err ){
-            console.error( err );
-        } else {
-            if(( res === true || res === false ) && res !== SSR._client.isPrerender.value ){
-                console.debug( '(client) setting isPrerender to', res );
-                SSR._client.isPrerender.value = res;
-                SSR._client.isPrerender.dep.changed();
-            }
+    if( SSR._collections.Status.client ){
+        SSR._client.isPrerender.client.set( true );
+    }
+});
+
+Tracker.autorun(() => {
+    if( SSR._client.isPrerender.handle.ready() && SSR._client.collectionsReady.get()){
+        const res = SSR._collections.Status.client.find({ name: STATUS_PRERENDER }).fetch()[0];
+            console.debug( '(client) getting prerender res', JSON.stringify( res ));
+            if(( res.value === true || res.value === false ) && res.value !== SSR._client.isPrerender.value ){
+            SSR._client.isPrerender.value = res.value;
+            SSR._client.isPrerender.dep.changed();
         }
-    });
+    }
 });
 
 SSR.isPrerender = function(){
     SSR._client.isPrerender.dep.depend();
-    console.debug( '(client) returning isPrerender', SSR._client.isPrerender.value );
+    //console.debug( '(client) returning isPrerender', SSR._client.isPrerender.value );
     return SSR._client.isPrerender.value;
 }

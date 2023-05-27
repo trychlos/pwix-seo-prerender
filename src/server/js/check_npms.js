@@ -10,6 +10,8 @@ if( false ){
 }
 
 checkNpmVersions({
+    'merge': '^2.1.1',
+    'simpl-schema': '^3.4.1'
 },
     'pwix:ssr'
 );

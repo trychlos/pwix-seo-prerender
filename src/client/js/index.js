@@ -7,3 +7,4 @@ import '../../common/js/index.js';
 import './client.js';
 import './isbot.js';
 import './isprerender.js';
+import './startup.js';

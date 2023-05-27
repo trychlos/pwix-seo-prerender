@@ -15,7 +15,8 @@ Package.onUse( function( api ){
     api.export([
         'SSR',
         'SSR_VERBOSE_NONE',
-        'SSR_VERBOSE_CONFIGURE'
+        'SSR_VERBOSE_CONFIGURE',
+        'SSR_VERBOSE_COLLECTIONS'
     ]);
     api.mainModule( 'src/client/js/index.js', 'client' );
     api.mainModule( 'src/server/js/index.js', 'server' );
@@ -30,7 +31,11 @@ Package.onTest( function( api ){
 
 function configure( api ){
     api.versionsFrom( '2.12' );
+    api.use( 'aldeed:collection2@3.5.0', 'server' );
+    api.use( 'check' );
     api.use( 'ecmascript' );
+    api.use( 'mongo' );
+    api.use( 'reactive-var' );
     api.use( 'tmeasday:check-npm-versions@1.0.2', 'server' );
 }
 

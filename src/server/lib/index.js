@@ -7,11 +7,11 @@ const adapters = { 'http:': http, 'https:': https};
 
 var prerender = module.exports = function(req, res, next) {
 
-  SSR.isBot( false );
+  SSR._server.setBot( false );
 
   if(!prerender.shouldShowPrerenderedPage(req)) return next();
 
-  SSR.isBot( true );
+  SSR._server.setBot( true );
 
   prerender.beforeRenderFn(req, function(err, cachedRender) {
 

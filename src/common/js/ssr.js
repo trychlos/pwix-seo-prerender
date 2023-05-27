@@ -2,4 +2,7 @@
  * pwix:ssr/src/common/js/index.js
  */
 
-SSR = {};
+SSR = {
+    _collections: {},
+    _conf: {}
+};

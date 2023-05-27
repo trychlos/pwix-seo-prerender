@@ -18,6 +18,12 @@ The package's behavior can be configured through a call to the `SSR.configure()`
 
 Known configuration options are:
 
+- `collectionsPrefix`
+
+    The prefix to be used when naming the collectionks used by the package.
+
+    Defaults to `ssr_`.
+
 - `verbosity`
 
     Define the expected verbosity level.
@@ -32,9 +38,15 @@ Known configuration options are:
 
         Trace `SSR.configure()` calls and their result
 
+    - `SSR_VERBOSE_COLLECTIONS`
+
+        Trace collections definitions.
+
+        May be useful to check that the collections are rightly prefixed.
+
 Please note that `SSR.configure()` method should be called in the same terms both in client and server sides.
 
-Also note, as an explicit reminder, that, because the Meteor packages are instanciated at application level, they should be configured at most once, and only once at most. Each addtionnal call to `SSR.configure()` will just override the previous one. You have been warned: **only the application should configure a package**.
+Remind too that Meteor packages are instanciated at application level. They are so only configurable once, or, in other words, only one instance has to be or can be configured. Addtionnal calls to `SSR.configure()` will just override the previous one. You have been warned: **only the application should configure a package**.
 
 ## Provides
 
@@ -48,13 +60,13 @@ The global object exported by the package.
 
 A reactive datasource which evaluates to `true` when the current incoming request is originated from a bot crawler.
 
-This method is available both on the client and on the server.
+This method is only available on the client.
 
 - `SSR.isPrerender()`
 
 A reactive datasource which evaluates to `true` when the current rendering is asked by the prerender service.
 
-This method is available both on the client and on the server.
+This method is only available on the client.
 
 ## References
 
