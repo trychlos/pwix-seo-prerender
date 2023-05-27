@@ -1,0 +1,60 @@
+{
+  "_from": "prerender-node",
+  "_id": "prerender-node@3.7.0",
+  "_inBundle": false,
+  "_integrity": "sha512-FuhXsH0RIjxMbR/K/+S6lpnFu+lgkYd7Vy9qTob2Tp7h7p7n1NYmslPpCEz8xLYwIMgbU9vrTOoxXy5/gRY8mA==",
+  "_location": "/prerender-node",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "prerender-node",
+    "name": "prerender-node",
+    "escapedName": "prerender-node",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/prerender-node/-/prerender-node-3.7.0.tgz",
+  "_shasum": "30de48138b52ceb2f70da7cf0401f2c3a05ec99f",
+  "_spec": "prerender-node",
+  "_where": "/home/pierre/data/eclipse/www.trychlos",
+  "author": {
+    "name": "Todd Hooper"
+  },
+  "bugs": {
+    "url": "https://github.com/prerender/prerender-node/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "express middleware for serving prerendered javascript-rendered pages for SEO",
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "nock": "^11.9.1",
+    "request": "^2.88.2",
+    "sinon": "^7.3.1",
+    "supertest": "^4.0.2"
+  },
+  "homepage": "https://github.com/prerender/prerender-node#readme",
+  "keywords": [
+    "angular",
+    "backbone",
+    "emberjs",
+    "seo"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "prerender-node",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/prerender/prerender-node.git"
+  },
+  "scripts": {
+    "test": "echo 'Make sure to unset PRERENDER_SERVICE_URL when running locally' && ./node_modules/.bin/mocha"
+  },
+  "version": "3.7.0"
+}
