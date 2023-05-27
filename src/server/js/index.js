@@ -8,4 +8,5 @@ import './check_npms.js';
 import './methods.js';
 import './server.js';
 import './isbot.js';
+import './isprerender.js';
 import './webapp.js';

@@ -16,7 +16,7 @@ SSR._server.isBot = {
 SSR.isBot = function( bool ){
     if( arguments.length ){
         if(( bool === true || bool === false ) && bool !== SSR._server.isBot.value ){
-            console.debug( 'setting isBot to', bool );
+            //console.debug( 'setting isBot to', bool );
             SSR._server.isBot.value = bool;
             SSR._server.isBot.dep.changed();
         }

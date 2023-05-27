@@ -5,5 +5,8 @@
 Meteor.methods({
     'ssr.isBot'(){
         return SSR.isBot();
+    },
+    'ssr.isPrerender'(){
+        return SSR.isPrerender();
     }
 });
