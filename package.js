@@ -17,6 +17,7 @@ Package.onUse( function( api ){
         'SSR_VERBOSE_NONE',
         'SSR_VERBOSE_CONFIGURE'
     ]);
+    api.mainModule( 'src/client/js/index.js', 'client' );
     api.mainModule( 'src/server/js/index.js', 'server' );
 });
 

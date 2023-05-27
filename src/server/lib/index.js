@@ -6,7 +6,12 @@ var http = require('http')
 const adapters = { 'http:': http, 'https:': https};
 
 var prerender = module.exports = function(req, res, next) {
+
+  SSR.isBot( false );
+
   if(!prerender.shouldShowPrerenderedPage(req)) return next();
+
+  SSR.isBot( true );
 
   prerender.beforeRenderFn(req, function(err, cachedRender) {
 
