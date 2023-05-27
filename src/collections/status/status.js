@@ -69,18 +69,13 @@ SSR._collections.Status = {
                 value: ( value ? true : false ),
                 updatedAt: new Date()
             };
-            const fn = Meteor.bindEnvironment( function( o ){
-                SSR._collections.Status.server.upsert({ name: name }, { $set: o }, ( err, res ) => {
-                    if( err ){
-                        console.error( err );
-                    } else {
-                        if( SSR._conf.verbosity & SSR_VERBOSE_COLLECTIONS ){
-                            console.debug( 'pwix:ssr status.set() returns with', res );
-                        }
-                    }
-                });
+            //console.debug( 'status.set', o );
+            const fn = Meteor.bindEnvironment( function(){
+                const res = SSR._collections.Status.server.upsert({ name: name }, { $set: o });
+                //console.debug( res );
+                return res;
             });
-            fn( o );
+            fn();
         }
     },
 

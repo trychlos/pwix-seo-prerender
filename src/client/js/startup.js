@@ -7,6 +7,7 @@ Meteor.startup( function(){
     if( SSR._conf.verbosity & SSR_VERBOSE_COLLECTIONS ){
         console.log( 'pwix:ssr defining collections...' );
     }
+    //console.debug( SSR._conf );
     Object.keys( SSR._collections ).every(( c ) => {
         const name = SSR._conf.collectionsPrefix + SSR._collections[c].name;
         if( SSR._conf.verbosity & SSR_VERBOSE_COLLECTIONS ){

@@ -4,13 +4,21 @@
 
 A Meteor package which adds to your application the ways to manage server-side rendering.
 
-Its good behavior relies on a prerender service, which can be either [prerender.io](https://prerender.io) or your own local prerender service. The prerender service must be addressed by the `PRERENDER_SERVICE_URL` environment variable (the environment of your running application on the server side).
+Its good behavior relies on the availability somewhere of an external prerendering service, which can be either [prerender.io](https://prerender.io) or your own local prerender service. The prerender service must be addressed by the `PRERENDER_SERVICE_URL` environment variable (the environment of your running application on the server side).
 
 It is based on `prerender-node` package (cf. [References](#References) below).
 
-On the server-side, the `prerender-node` package provides a middleware which redirects all requests incoming from a bot crawler to the addressed prerender service.
+On the server-side, thanks to `prerender-node`, the `pwix:ssr` package provides a middleware which redirects all requests incoming from a bot crawler to the addressed prerender service.
 
-On the client-side, the `pwix:ssr` package provides a `SSR.isBot()` reactive datasource which is true when the current rendering is asked by a bot crawler.
+On the client-side, the `pwix:ssr` package provides a `SSR.isBot()` and `SSR.isPrerender()` reactive datasources (see [Methods](#Methods) below).
+
+## How does it work ?
+
+`pwix:ssr` looks at the headers of each incoming HTTP request in order to detect a bot crawler activity. When it does so, the request is forwarded to the prerendering service which handle it, and returns the built page (without any script).
+
+The client-side datasources are here so that your application may decide to build a special page or have a special look when prerendering.
+
+For example, you may want to not display a cookie banner in such a case.
 
 ## Configuration
 
@@ -20,7 +28,7 @@ Known configuration options are:
 
 - `collectionsPrefix`
 
-    The prefix to be used when naming the collectionks used by the package.
+    The prefix to be used when naming the collections used by the package.
 
     Defaults to `ssr_`.
 
@@ -28,15 +36,11 @@ Known configuration options are:
 
     Define the expected verbosity level.
 
-    The accepted value can be any or-ed combination of following:
-
-    - `SSR_VERBOSE_NONE`
-
-        Do not display any trace log to the console
+    The accepted value can be `SSR_VERBOSE_NONE` or any or-ed combination of following:
 
     - `SSR_VERBOSE_CONFIGURE`
 
-        Trace `SSR.configure()` calls and their result
+        Trace `SSR.configure()` calls and their result.
 
     - `SSR_VERBOSE_COLLECTIONS`
 
@@ -76,12 +80,14 @@ This method is only available on the client.
 
 ## NPM peer dependencies
 
-Starting with v 1.0.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`. 
+Starting with v 0.1.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`. 
 
 Instead we check npm versions of installed packages at runtime, on server startup, in development environment.
 
-Dependencies as of v 1.0.0:
+Dependencies as of v 0.1.0:
 ```
+    'merge': '^2.1.1',
+    'simpl-schema': '^3.4.1'
 ```
 
 Each of these dependencies should be installed at application level:
@@ -95,7 +101,7 @@ New and updated translations are willingly accepted, and more than welcome. Just
 
 ## Cookies and comparable technologies
 
-As a server-side only package, this one doesn't use any cookie.
+The package doesn't use any cookie.
 
 ---
 P. Wieser
