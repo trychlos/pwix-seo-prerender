@@ -6,7 +6,7 @@
 
 // verbosity levels
 SSR_VERBOSE_NONE = 0;
-SSR_VERBOSE_CONFIGURE = 0x01 <<  0;
+SSR_VERBOSE_CONFIGURE   = 0x01 <<  0;
 SSR_VERBOSE_COLLECTIONS = 0x01 <<  1;
 
 // non exported

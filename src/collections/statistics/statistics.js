@@ -26,6 +26,10 @@ SSR._collections.Statistics = {
         origId: {
             type: String
         },
+        // the visited url
+        referer: {
+            type: String
+        },
         // creation timestamp
         createdAt: {
             type: String,
@@ -57,21 +61,22 @@ SSR._collections.Statistics = {
     },
 
     // @locus Server
-    // Set bot/prerender detection
+    // Add bot/prerender statistic
     // Need to bindEnvironment() because ultimately run from webapp inside of a HTTP middleware
-    set( name, value ){
+    add( orig, req ){
         if( Meteor.isServer && SSR._collections.Statistics.server ){
-            check( name, String );
+            check( orig, String );
             const o = {
-                name: name,
-                value: ( value ? true : false ),
-                updatedAt: new Date()
+                userAgent: req.headers['user-agent'],
+                origId: orig,
+                referer: req.headers['referer'],
+                createdAt: new Date()
             };
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
-                const res = SSR._collections.Statistics.server.upsert({ name: name }, { $set: o });
-                //console.debug( res );
-                return res;
+                SSR._collections.Statistics.server.insert( o, ( err, res ) => {
+                    //console.debug( res ); // _id
+                });
             });
             fn();
         }

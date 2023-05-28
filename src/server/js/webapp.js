@@ -6,6 +6,8 @@ import { WebApp } from 'meteor/webapp';
 
 const prerender = require( '../lib' );
 
+prerender.set( 'beforeRender', SSR._server.beforeRender );
+
 WebApp.connectHandlers.use(( req, res, next ) => {
 
     // test if we are prerendering...

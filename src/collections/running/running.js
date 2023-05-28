@@ -64,9 +64,10 @@ SSR._collections.Running = {
     set( name, value ){
         if( Meteor.isServer && SSR._collections.Running.server ){
             check( name, String );
+            const bool = ( value ? true : false );
             const o = {
                 name: name,
-                value: ( value ? true : false ),
+                value: bool,
                 updatedAt: new Date()
             };
             //console.debug( 'running.set', o );
