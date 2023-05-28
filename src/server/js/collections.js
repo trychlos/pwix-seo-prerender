@@ -2,4 +2,4 @@
  * pwix:ssr/src/server/js/collections.js
  */
 
-import '../../collections/status/server/index.js';
+import '../../collections/running/server/index.js';
