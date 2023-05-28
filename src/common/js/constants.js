@@ -13,5 +13,5 @@ SSR_VERBOSE_COLLECTIONS = 0x01 <<  1;
 
 // identifer of the unique status document in the status collection
 //STATUS_ID = 'id-b4f55298-1840-47c5-896d-498ee8cbc369';
-STATUS_BOT = 'botCrawler';
-STATUS_PRERENDER = 'prerender';
+ORIGID_BOT = 'botCrawler';
+ORIGID_PRERENDER = 'prerender';

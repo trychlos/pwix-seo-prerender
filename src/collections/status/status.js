@@ -19,7 +19,7 @@ SSR._collections.Status = {
 
     // collection schema
     schema: new SimpleSchema({
-        // either STATUS_BOT|STATUS_PRERENDER - no default
+        // either ORIGID_BOT|ORIGID_PRERENDER - no default
         name: {
             type: String
         },
