@@ -92,7 +92,7 @@ SSR._collections.Statistics = {
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
                 SSR._collections.Statistics.server.insert( o, ( err, res ) => {
-                    console.debug( o ); // includes the _id after the insertion
+                    //console.debug( o ); // includes the _id after the insertion
                 });
             });
             fn();

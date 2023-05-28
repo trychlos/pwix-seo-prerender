@@ -82,7 +82,7 @@ This method is only available on the client.
 
 The usage of a `redis` instance is not mandatory for this package.
 
-If a `redis` connection can be nonetheless established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
+If a `redis` connection can nonetheless be established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
 
 ## NPM peer dependencies
 
@@ -112,4 +112,4 @@ The package doesn't use any cookie.
 
 ---
 P. Wieser
-- Last updated on 2023, May 11th
+- Last updated on 2023, May 28th

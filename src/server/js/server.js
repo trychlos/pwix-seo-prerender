@@ -11,7 +11,7 @@ SSR._server = {
         }
         // prerender ater render: cache the result
         if( SSR._server.isPrerender ){
-            console.debug( req._canonicalUrl, 'caching' );
+            //console.debug( req._canonicalUrl, 'caching' );
             //SSR._redis.set( req.headers.referer, JSON.stringify( res ));
             SSR._redis.set( req._canonicalUrl, res.body );
         }
@@ -30,11 +30,11 @@ SSR._server = {
                     //console.debug( 'doc', doc );
                     SSR._collections.Statistics.add( ORIGID_BOT, req, doc );
                     if( doc ){
-                        console.debug( req._canonicalUrl, 'found a cached document' );
+                        //console.debug( req._canonicalUrl, 'found a cached document' );
                         req._hasPrerendered = true;
                         return done( null, doc );
                     } else {
-                        console.debug( req._canonicalUrl, 'no previous cache' );
+                        //console.debug( req._canonicalUrl, 'no previous cache' );
                         done();
                     }
                 });
