@@ -78,6 +78,12 @@ This method is only available on the client.
 
 [npmjs](https://www.npmjs.com/package/prerender-node)
 
+## Redis in-memory cache
+
+The usage of a `redis` instance is not mandatory for this package.
+
+If a `redis` connection can be nonetheless established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
+
 ## NPM peer dependencies
 
 Starting with v 0.1.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`. 
@@ -87,6 +93,7 @@ Instead we check npm versions of installed packages at runtime, on server startu
 Dependencies as of v 0.1.0:
 ```
     'merge': '^2.1.1',
+    'redis': '^4.6.6',
     'simpl-schema': '^3.4.1'
 ```
 

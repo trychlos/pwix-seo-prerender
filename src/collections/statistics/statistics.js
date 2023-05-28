@@ -27,8 +27,20 @@ SSR._collections.Statistics = {
             type: String
         },
         // the visited url
-        referer: {
+        canonical: {
             type: String
+        },
+        // whether we have found a cached document, and its size
+        pageCached: {
+            type: Boolean
+        },
+        pageSize: {
+            type: Number,
+            optional: true
+        },
+        createdAt: {
+            type: String,
+            optional: true
         },
         // creation timestamp
         createdAt: {
@@ -63,19 +75,24 @@ SSR._collections.Statistics = {
     // @locus Server
     // Add bot/prerender statistic
     // Need to bindEnvironment() because ultimately run from webapp inside of a HTTP middleware
-    add( orig, req ){
+    add( orig, req, doc ){
         if( Meteor.isServer && SSR._collections.Statistics.server ){
             check( orig, String );
-            const o = {
+            let o = {
                 userAgent: req.headers['user-agent'],
                 origId: orig,
-                referer: req.headers['referer'],
-                createdAt: new Date()
+                canonical: req._canonicalUrl,
+                createdAt: new Date(),
+                pageCached: false
             };
+            if( doc ){
+                o.pageCached = true;
+                o.pageSize = doc.length;
+            }
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
                 SSR._collections.Statistics.server.insert( o, ( err, res ) => {
-                    //console.debug( res ); // _id
+                    console.debug( o ); // includes the _id after the insertion
                 });
             });
             fn();

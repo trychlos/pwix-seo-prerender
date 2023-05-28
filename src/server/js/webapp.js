@@ -7,6 +7,7 @@ import { WebApp } from 'meteor/webapp';
 const prerender = require( '../lib' );
 
 prerender.set( 'beforeRender', SSR._server.beforeRender );
+prerender.set( 'afterRender', SSR._server.afterRender );
 
 WebApp.connectHandlers.use(( req, res, next ) => {
 

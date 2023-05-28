@@ -11,6 +11,7 @@ if( false ){
 
 checkNpmVersions({
     'merge': '^2.1.1',
+    'redis': '^4.6.6',
     'simpl-schema': '^3.4.1'
 },
     'pwix:ssr'

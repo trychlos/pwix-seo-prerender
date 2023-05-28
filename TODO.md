@@ -10,7 +10,9 @@
 
 |   Id | Date       | Description and comment(s) |
 | ---: | :---       | :---                       |
-|    1 |  |  |
+|    1 | 2023- 5-28 | Have a configuration option to cache via redis or mongo or not at all |
+|    2 | 2023- 5-28 | Have a configuration option to provide a redis connection url |
+|    3 |  |  |
 
 ---
 ## Done

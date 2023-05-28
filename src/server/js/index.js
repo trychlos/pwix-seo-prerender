@@ -7,5 +7,6 @@ import './server.js';
 
 import './check_npms.js';
 import './collections.js';
+import './redis.js';
 import './startup.js';
 import './webapp.js';
