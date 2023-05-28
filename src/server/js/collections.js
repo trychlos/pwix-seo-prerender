@@ -3,3 +3,4 @@
  */
 
 import '../../collections/running/server/index.js';
+import '../../collections/statistics/server/index.js';

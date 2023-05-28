@@ -1,0 +1,83 @@
+/*
+ * pwix:ssr/src/collections/statistics/statistics.js
+ *
+ * See server/sofns.js for server-only functions.
+ * See server/methods.js for server functions remotely callable from the client
+ *  (aka Meteor RPC).
+ * 
+ * This collection aims to build statistics about bot crawlers usage.
+ */
+
+import { check } from 'meteor/check';
+import SimpleSchema from 'simpl-schema';
+
+SSR._collections.Statistics = {
+
+    // name radical
+    name: 'statistics',
+
+    // collection schema
+    schema: new SimpleSchema({
+        // the userAgent of the bot
+        userAgent: {
+            type: String
+        },
+        // normally ORIGID_BOT
+        origId: {
+            type: String
+        },
+        // creation timestamp
+        createdAt: {
+            type: String,
+            optional: true
+        },
+        // Mongo identifier
+        // mandatory (auto by Meteor+Mongo)
+        _id: {
+            type: String,
+            optional: true
+        },
+        xxxxxx: {   // unused key to be sure we always have something to unset
+            type: String,
+            optional: true
+        }
+    }),
+
+    // @locus Server
+    // Deny all client-side updates
+    // cf. https://guide.meteor.com/security.html#allow-deny
+    deny(){
+        if( Meteor.isServer ){
+            SSR._collections.Statistics.server.deny({
+                insert(){ return true; },
+                update(){ return true; },
+                remove(){ return true; },
+            });
+        }
+    },
+
+    // @locus Server
+    // Set bot/prerender detection
+    // Need to bindEnvironment() because ultimately run from webapp inside of a HTTP middleware
+    set( name, value ){
+        if( Meteor.isServer && SSR._collections.Statistics.server ){
+            check( name, String );
+            const o = {
+                name: name,
+                value: ( value ? true : false ),
+                updatedAt: new Date()
+            };
+            //console.debug( 'running.set', o );
+            const fn = Meteor.bindEnvironment( function(){
+                const res = SSR._collections.Statistics.server.upsert({ name: name }, { $set: o });
+                //console.debug( res );
+                return res;
+            });
+            fn();
+        }
+    },
+
+    // client and server below will host the respective Mongo collections
+    client: null,
+    server: null
+};

@@ -3,3 +3,4 @@
  */
 
 import '../../collections/running/running.js';
+import '../../collections/statistics/statistics.js';
