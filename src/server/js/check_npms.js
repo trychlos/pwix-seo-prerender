@@ -10,7 +10,7 @@ if( false ){
 }
 
 checkNpmVersions({
-    'merge': '^2.1.1',
+    'lodash': '^4.17.0',
     'redis': '^4.6.6',
     'simpl-schema': '^3.4.1'
 },
