@@ -32,6 +32,14 @@ Known configuration options are:
 
     Defaults to `ssr_`.
 
+- `enabled`
+
+    Wether to enable (resp. disable) the prerendering.
+
+    Defaults to enabled (`true`).
+
+    Rationale: adding this package to an application doesn't mean that you want your application being pre-rendered in each of its execution environments. Typically, you will want disable the prederendering at least while in development mode.
+
 - `verbosity`
 
     Define the expected verbosity level.
@@ -92,7 +100,7 @@ Instead we check npm versions of installed packages at runtime, on server startu
 
 Dependencies as of v 0.1.0:
 ```
-    'merge': '^2.1.1',
+    'lodash': '^4.17.0',
     'redis': '^4.6.6',
     'simpl-schema': '^3.4.1'
 ```

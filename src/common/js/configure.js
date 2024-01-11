@@ -12,6 +12,7 @@ const NonEmptyString = Match.Where((x) => {
 
 SSR._defaults = {
     collectionsPrefix: 'ssr_',
+    enabled: true,
     verbosity: SSR_VERBOSE_NONE
 };
 
@@ -32,6 +33,7 @@ SSR.configure = function( o ){
         if( SSR._conf.verbosity & SSR_VERBOSE_CONFIGURE ){
             console.debug( 'pwix:ssr configure() with', o, 'building', SSR._conf );
         }
+        console.debug( 'pwix:ssr configure() with', o, 'building', SSR._conf );
     }
     // also acts as a getter
     return SSR._conf;
