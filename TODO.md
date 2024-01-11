@@ -17,7 +17,9 @@
 |    4 | 2023- 5-28 | Provide a UI component to manage and clear statistics |
 |    5 | 2023- 5-28 | Provide an API to clear/reinit redis cache |
 |    6 | 2023- 5-28 | Provide a UI component to clear/reinit redis cache |
-|    7 |  |  |
+|    7 | 2023- 9-10 | Add to README a comparson with meteor-ssr, ad why we do not use it |
+|    8 | 2023- 9-12 | back meteor to 2.9.0 |
+|    9 |  |  |
 
 ---
 ## Done
