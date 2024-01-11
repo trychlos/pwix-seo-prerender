@@ -28,7 +28,7 @@ Package.onTest( function( api ){
 });
 
 function configure( api ){
-    api.versionsFrom( '2.12' );
+    api.versionsFrom( '2.9.0' );
     api.use( 'aldeed:collection2@3.5.0', 'server' );
     api.use( 'check' );
     api.use( 'ecmascript' );
