@@ -1,6 +1,6 @@
 Package.describe({
     name: 'pwix:ssr',
-    version: '0.1.0',
+    version: '0.9.0-rc',
     // Brief, one-line summary of the package.
     summary: 'A Meteor package which manages static rendering and its storage, through a renderer server, for SEO puposes.',
     // URL to the Git repository containing the source code for this package.
@@ -28,14 +28,14 @@ Package.onTest( function( api ){
 });
 
 function configure( api ){
-    api.versionsFrom( '2.9.0' );
-    api.use( 'aldeed:collection2@3.5.0', 'server' );
+    api.versionsFrom([ '2.9.0', '3.0-rc.0' ]);
+    api.use( 'aldeed:collection2@3.5.0 || 4.0.1', 'server' );
     api.use( 'check' );
     api.use( 'ecmascript' );
     api.use( 'mongo' );
     api.use( 'reactive-var' );
-    api.use( 'tmeasday:check-npm-versions@1.0.2', 'server' );
+    api.use( 'tmeasday:check-npm-versions@1.0.2 || 2.0.0-beta.0', 'server' );
 }
 
 // NPM dependencies are checked in /src/server/js/check_npms.js
-// See also https://guide.meteor.com/writing-atmosphere-packages.html#npm-dependencies
+// See also https://guide.meteor.com/writing-atmosphere-packages.html#peer-npm-dependencies
