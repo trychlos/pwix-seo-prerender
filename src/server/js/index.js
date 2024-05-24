@@ -7,6 +7,7 @@ import './server.js';
 
 import './check_npms.js';
 import './collections.js';
-import './redis.js';
+// temporarily disable redis (see todo #1)
+//import './redis.js';
 import './startup.js';
 import './webapp.js';

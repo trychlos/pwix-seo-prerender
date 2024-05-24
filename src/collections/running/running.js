@@ -10,7 +10,11 @@
  */
 
 import { check } from 'meteor/check';
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'meteor/aldeed:simple-schema';
+
+import 'meteor/aldeed:collection2/dynamic';
+
+Collection2.load();
 
 SSR._collections.Running = {
 

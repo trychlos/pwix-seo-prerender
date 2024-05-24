@@ -11,8 +11,8 @@ if( false ){
 
 checkNpmVersions({
     'lodash': '^4.17.0',
-    'redis': '^4.6.6',
-    'simpl-schema': '^3.4.1'
+    // temporarily disable redis (see todo #1)
+    //'redis': '^4.6.6'
 },
     'pwix:ssr'
 );
