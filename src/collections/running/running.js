@@ -76,7 +76,7 @@ SSR._collections.Running = {
             };
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
-                const res = SSR._collections.Running.server.upsert({ name: name }, { $set: o });
+                const res = SSR._collections.Running.server.upsertAsync({ name: name }, { $set: o });
                 //console.debug( res );
                 return res;
             });
