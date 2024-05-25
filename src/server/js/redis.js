@@ -8,8 +8,8 @@ try {
     createClient = Npm.require( 'redis' ).createClient;
 }
 catch( e ){
-    console.error( '[pwix:ssrr/src/server/js/redis.js] redis cannot be imported - do you have installed it ? (meteor npm install redis)' );
-    console.error( '[pwix:ssrr/src/server/js/redis.js] will not use redis as a pre-rendering cache' );
+    console.error( '[pwix:ssr/src/server/js/redis.js] redis cannot be imported - do you have installed it ? (meteor npm install redis)' );
+    console.error( '[pwix:ssr/src/server/js/redis.js] will not use redis as a pre-rendering cache' );
 }
 
 if( createClient ){
