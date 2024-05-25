@@ -26,7 +26,7 @@ Package.onTest( function( api ){
 
 function configure( api ){
     api.versionsFrom([ '2.9.0', '3.0-rc.0' ]);
-    api.use( 'aldeed:collection2@3.5.0 || 4.0.1', 'server' );
+    api.use( 'aldeed:collection2@3.5.0 || 4.0.1' );
     api.use( 'check' );
     api.use( 'ecmascript' );
     api.use( 'mongo' );
