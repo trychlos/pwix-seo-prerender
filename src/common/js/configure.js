@@ -13,7 +13,7 @@ const NonEmptyString = Match.Where((x) => {
 SSR._defaults = {
     collectionsPrefix: 'ssr_',
     enabled: true,
-    verbosity: SSR_VERBOSE_NONE
+    verbosity: SSR.C.Verbose.NONE
 };
 
 /**
@@ -30,7 +30,7 @@ SSR.configure = function( o ){
         check( SSR._conf.collectionsPrefix, NonEmptyString );
 
         // be verbose if asked for
-        if( SSR._conf.verbosity & SSR_VERBOSE_CONFIGURE ){
+        if( SSR._conf.verbosity & SSR.C.Verbose.CONFIGURE ){
             console.debug( 'pwix:ssr configure() with', o, 'building', SSR._conf );
         }
         console.debug( 'pwix:ssr configure() with', o, 'building', SSR._conf );

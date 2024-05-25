@@ -44,13 +44,13 @@ Known configuration options are:
 
     Define the expected verbosity level.
 
-    The accepted value can be `SSR_VERBOSE_NONE` or any or-ed combination of following:
+    The accepted value can be `SSR.C.Verbose.NONE` or any or-ed combination of following:
 
-    - `SSR_VERBOSE_CONFIGURE`
+    - `SSR.C.Verbose.CONFIGURE`
 
         Trace `SSR.configure()` calls and their result.
 
-    - `SSR_VERBOSE_COLLECTIONS`
+    - `SSR.C.Verbose.COLLECTIONS`
 
         Trace collections definitions.
 

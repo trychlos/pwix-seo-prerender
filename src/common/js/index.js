@@ -3,8 +3,8 @@
  */
 
 import './ssr.js';
-
-import './collections.js';
 import './constants.js';
+//
+import './collections.js';
 
 import './configure.js';

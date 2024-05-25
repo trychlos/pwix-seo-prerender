@@ -19,7 +19,6 @@
 |    4 | 2023- 5-28 | Provide a UI component to manage and clear statistics |
 |    5 | 2023- 5-28 | Provide an API to clear/reinit redis cache |
 |    6 | 2023- 5-28 | Provide a UI component to clear/reinit redis cache |
-|    9 | 2024- 5-24 | Remove VERBOSE constants from exports as in other packages |
 |   11 |  |  |
 
 ---
@@ -31,6 +30,8 @@
 |      | 2024- 5-25 | done |
 |    8 | 2023- 9-12 | back meteor to 2.9.0 |
 |      | 2024- 1-11 | done |
+|    9 | 2024- 5-24 | Remove VERBOSE constants from exports as in other packages |
+|      | 2024- 5-25 | done |
 |   10 | 2024- 5-24 | review all server code to replace sync calls with async/await |
 |      | 2024- 5-25 | done |
 

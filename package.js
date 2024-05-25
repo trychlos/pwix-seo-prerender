@@ -11,10 +11,7 @@ Package.describe({
 Package.onUse( function( api ){
     configure( api );
     api.export([
-        'SSR',
-        'SSR_VERBOSE_NONE',
-        'SSR_VERBOSE_CONFIGURE',
-        'SSR_VERBOSE_COLLECTIONS'
+        'SSR'
     ]);
     api.mainModule( 'src/client/js/index.js', 'client' );
     api.mainModule( 'src/server/js/index.js', 'server' );

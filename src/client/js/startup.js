@@ -4,13 +4,13 @@
 
 Meteor.startup( function(){
     // define the cient-side collections
-    if( SSR._conf.verbosity & SSR_VERBOSE_COLLECTIONS ){
+    if( SSR._conf.verbosity & SSR.C.Verbose.COLLECTIONS ){
         console.log( 'pwix:ssr defining collections...' );
     }
     //console.debug( SSR._conf );
     Object.keys( SSR._collections ).every(( c ) => {
         const name = SSR._conf.collectionsPrefix + SSR._collections[c].name;
-        if( SSR._conf.verbosity & SSR_VERBOSE_COLLECTIONS ){
+        if( SSR._conf.verbosity & SSR.C.Verbose.COLLECTIONS ){
             console.log( '   '+c+' -> '+name );
         }
         SSR._collections[c].client = new Mongo.Collection( name );
