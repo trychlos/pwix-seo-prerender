@@ -19,15 +19,17 @@
 |    4 | 2023- 5-28 | Provide a UI component to manage and clear statistics |
 |    5 | 2023- 5-28 | Provide an API to clear/reinit redis cache |
 |    6 | 2023- 5-28 | Provide a UI component to clear/reinit redis cache |
-|    7 | 2023- 9-10 | Add to README a comparison with meteor-ssr, ad why we do not use it |
 |    9 | 2024- 5-24 | Remove VERBOSE constants from exports as in other packages |
-|   10 |  |  |
+|   10 | 2024- 5-24 | review all server code to replace sync calls with async/await |
+|   11 |  |  |
 
 ---
 ## Done
 
 |   Id | Date       | Description and comment(s) |
 | ---: | :---       | :---                       |
+|    7 | 2023- 9-10 | Add to README a comparison with meteor-ssr, ad why we do not use it |
+|      | 2024- 5-25 | done |
 |    8 | 2023- 9-12 | back meteor to 2.9.0 |
 |      | 2024- 1-11 | done |
 

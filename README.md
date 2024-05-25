@@ -14,7 +14,7 @@ On the client-side, the `pwix:ssr` package provides a `SSR.isBot()` and `SSR.isP
 
 ## How does it work ?
 
-`pwix:ssr` looks at the headers of each incoming HTTP request in order to detect a bot crawler activity. When it does so, the request is forwarded to the prerendering service which handle it, and returns the built page (without any script).
+`pwix:ssr` looks at the headers of each incoming HTTP request in order to detect a bot crawler activity. When it does so, the request is forwarded to the prerendering service which handle it, and returns the built page (without any script though).
 
 The client-side datasources are here so that your application may decide to build a special page or have a special look when prerendering.
 
@@ -91,6 +91,14 @@ This method is only available on the client.
 The usage of a `redis` instance is not mandatory for this package.
 
 If a `redis` connection can nonetheless be established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
+
+## Comparison with `server-render` Meteor package
+
+Meteor provides a `server-render` package which "implements generic support for server-side rendering in Meteor apps, by providing a mechanism for injecting fragments of HTML into the <head> and/or <body> of the application’s initial HTML response."
+
+Though documentation examples are rather React-oriented, it appears clear to me that the developer has to implement in the application the code needed to render the pages. Even if the templating system (React, Blaze or any one) provides some APIs, there is is some work to do to actually render the whole things.
+
+Contrarily, the `prerender-node` package relies on a Chromium instance which takes care of rendering both static and dynamic pages. At the cost of an addtionnal prerendering web service, we get the application free of any special rendering code.
 
 ## NPM peer dependencies
 
