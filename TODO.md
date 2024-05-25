@@ -14,6 +14,8 @@
 |      |            | for redis, this would be only useful if we could require the 'redis' npm package on demand |
 |      | 2024- 5-24 | should use redis if present, without forcing that |
 |      |            | see for example https://github.com/meteor/meteor/blob/release/METEOR%403.0-rc.2/packages/webapp/package.js |
+|      | 2024- 5-25 | unfortunately not: the above example is for a Meteor package, not a NPM one |
+|      |            | done via Npm.require() |
 |    2 | 2023- 5-28 | Have a configuration option to provide a redis connection url |
 |    3 | 2023- 5-28 | Provide an API to manage and clear statistics |
 |    4 | 2023- 5-28 | Provide a UI component to manage and clear statistics |

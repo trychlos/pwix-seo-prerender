@@ -3,11 +3,10 @@
  */
 
 import '../../common/js/index.js';
-import './server.js';
 
 import './check_npms.js';
 import './collections.js';
-// temporarily disable redis (see todo #1)
-//import './redis.js';
+import './redis.js';
+import './server.js';
 import './startup.js';
 import './webapp.js';
