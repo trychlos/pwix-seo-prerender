@@ -14,12 +14,14 @@ SSR._client.isBot = {
 
 Tracker.autorun(() => {
     if( SSR._client.isBot.handle.ready() && SSR._client.collectionsReady.get()){
-        const res = SSR._collections.Running.client.find({ name: ORIGID_BOT }).fetch()[0];
-        //console.debug( '(client) getting bot res', JSON.stringify( res ));
-        if(( res.value === true || res.value === false ) && res.value !== SSR._client.isBot.value ){
-            SSR._client.isBot.value = res.value;
-            SSR._client.isBot.dep.changed();
-        }
+        SSR._collections.Running.client.find({ name: ORIGID_BOT }).fetchAsync()
+            .then(( res ) => {
+                //console.debug( '(client) getting bot res', JSON.stringify( res ));
+                if( res && ( res.value === true || res.value === false ) && res.value !== SSR._client.isBot.value ){
+                    SSR._client.isBot.value = res.value;
+                    SSR._client.isBot.dep.changed();
+                }
+            });
     }
 });
 
