@@ -1,4 +1,4 @@
-# ssr
+# pwix:ssr
 
 ## What is it ?
 
@@ -19,6 +19,50 @@ On the client-side, the `pwix:ssr` package provides a `SSR.isBot()` and `SSR.isP
 The client-side datasources are here so that your application may decide to build a special page or have a special look when prerendering.
 
 For example, you may want to not display a cookie banner in such a case.
+
+## Redis in-memory cache
+
+The usage of a `redis` instance is not mandatory for this package.
+
+If a `redis` connection can nonetheless be established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
+
+## Comparison with `server-render` Meteor package
+
+Meteor provides a `server-render` package which "implements generic support for server-side rendering in Meteor apps, by providing a mechanism for injecting fragments of HTML into the <head> and/or <body> of the application’s initial HTML response."
+
+Though documentation examples are rather React-oriented, it appears clear to me that the developer has to implement in the application the code needed to render the pages. Even if the templating system (React, Blaze or any one) provides some APIs, there is is some work to do to actually render the whole things.
+
+Contrarily, the `prerender-node` package relies on a Chromium instance which takes care of rendering both static and dynamic pages. At the cost of an addtionnal prerendering web service, we get the application free of any special rendering code.
+
+## Installation
+
+This Meteor package is installable with the usual command:
+
+```sh
+    meteor add pwix:ssr
+```
+
+## Usage
+
+## Provides
+
+### `SSR`
+
+The exported `SSR` global object provides following items:
+
+#### Functions
+
+##### `SSR.isBot()`
+
+A reactive datasource which evaluates to `true` when the current incoming request is originated from a bot crawler.
+
+Only available on the client.
+
+##### `SSR.isPrerender()`
+
+A reactive datasource which evaluates to `true` when the current rendering is asked by the prerender service.
+
+Only available on the client.
 
 ## Configuration
 
@@ -60,46 +104,6 @@ Please note that `SSR.configure()` method should be called in the same terms bot
 
 Remind too that Meteor packages are instanciated at application level. They are so only configurable once, or, in other words, only one instance has to be or can be configured. Addtionnal calls to `SSR.configure()` will just override the previous one. You have been warned: **only the application should configure a package**.
 
-## Provides
-
-### `SSR`
-
-The global object exported by the package.
-
-### Methods
-
-- `SSR.isBot()`
-
-A reactive datasource which evaluates to `true` when the current incoming request is originated from a bot crawler.
-
-This method is only available on the client.
-
-- `SSR.isPrerender()`
-
-A reactive datasource which evaluates to `true` when the current rendering is asked by the prerender service.
-
-This method is only available on the client.
-
-## References
-
-[Github](https://github.com/prerender/prerender-node)
-
-[npmjs](https://www.npmjs.com/package/prerender-node)
-
-## Redis in-memory cache
-
-The usage of a `redis` instance is not mandatory for this package.
-
-If a `redis` connection can nonetheless be established, then `pwix:ssr` can take advantage of it to serve pages a lot faster.
-
-## Comparison with `server-render` Meteor package
-
-Meteor provides a `server-render` package which "implements generic support for server-side rendering in Meteor apps, by providing a mechanism for injecting fragments of HTML into the <head> and/or <body> of the application’s initial HTML response."
-
-Though documentation examples are rather React-oriented, it appears clear to me that the developer has to implement in the application the code needed to render the pages. Even if the templating system (React, Blaze or any one) provides some APIs, there is is some work to do to actually render the whole things.
-
-Contrarily, the `prerender-node` package relies on a Chromium instance which takes care of rendering both static and dynamic pages. At the cost of an addtionnal prerendering web service, we get the application free of any special rendering code.
-
 ## NPM peer dependencies
 
 Starting with v 0.1.0, and in accordance with advices from [the Meteor Guide](https://guide.meteor.com/writing-atmosphere-packages.html#peer-npm-dependencies), we no more hardcode NPM dependencies in the `Npm.depends` clause of the `package.js`.
@@ -125,6 +129,16 @@ New and updated translations are willingly accepted, and more than welcome. Just
 ## Cookies and comparable technologies
 
 The package doesn't use any cookie.
+
+## Issues & help
+
+In case of support or error, please report your issue request to our [Issues tracker](https://github.com/trychlos/pwix-ssr/issues).
+
+## References
+
+[Github](https://github.com/prerender/prerender-node)
+
+[npmjs](https://www.npmjs.com/package/prerender-node)
 
 ---
 P. Wieser

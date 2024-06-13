@@ -11,7 +11,7 @@ prerender.set( 'afterRender', SSR._server.afterRender );
 let warned = false;
 
 Meteor.startup(() => {
-    console.debug( 'SSR._conf.enabled', SSR._conf.enabled );
+    //console.debug( 'SSR._conf.enabled', SSR._conf.enabled );
     if( SSR._conf.enabled ){
         WebApp.connectHandlers.use(( req, res, next ) => {
     

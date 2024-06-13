@@ -2,11 +2,11 @@
 
 ## ChangeLog
 
-### 0.9.0-rc
+### 1.0.0-rc
 
-    Release date: 
+    Release date:
 
-    - 
+    -
 
 ---
 P. Wieser

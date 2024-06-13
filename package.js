@@ -1,6 +1,6 @@
 Package.describe({
     name: 'pwix:ssr',
-    version: '0.9.0-rc',
+    version: '1.0.0-rc',
     // Brief, one-line summary of the package.
     summary: 'A Meteor package which manages static rendering and its storage, through a renderer server, for SEO puposes.',
     // URL to the Git repository containing the source code for this package.
