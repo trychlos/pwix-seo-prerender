@@ -54,7 +54,7 @@ SSR._collections.Running = {
     // cf. https://guide.meteor.com/security.html#allow-deny
     deny(){
         if( Meteor.isServer ){
-            SSR._collections.Running.server.deny({
+            SSR._collections.Running.s.deny({
                 insert(){ return true; },
                 update(){ return true; },
                 remove(){ return true; },
@@ -66,7 +66,7 @@ SSR._collections.Running = {
     // Set bot/prerender detection
     // Need to bindEnvironment() because ultimately run from webapp inside of a HTTP middleware
     set( name, value ){
-        if( Meteor.isServer && SSR._collections.Running.server ){
+        if( Meteor.isServer && SSR._collections.Running.s ){
             check( name, String );
             const bool = ( value ? true : false );
             const o = {
@@ -76,7 +76,7 @@ SSR._collections.Running = {
             };
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
-                const res = SSR._collections.Running.server.upsertAsync({ name: name }, { $set: o });
+                const res = SSR._collections.Running.s.upsertAsync({ name: name }, { $set: o });
                 //console.debug( res );
                 return res;
             });

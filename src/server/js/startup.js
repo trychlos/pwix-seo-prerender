@@ -15,8 +15,8 @@ Meteor.startup( function(){
         if( SSR._conf.verbosity & SSR.C.Verbose.COLLECTIONS ){
             console.log( '   '+c+' -> '+name );
         }
-        SSR._collections[c].server = new Mongo.Collection( name );
-        SSR._collections[c].server.attachSchema( SSR._collections[c].schema );
+        SSR._collections[c].s = new Mongo.Collection( name );
+        SSR._collections[c].s.attachSchema( SSR._collections[c].schema );
         SSR._collections[c].deny();
         return true;
     });

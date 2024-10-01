@@ -68,7 +68,7 @@ SSR._collections.Statistics = {
     // cf. https://guide.meteor.com/security.html#allow-deny
     deny(){
         if( Meteor.isServer ){
-            SSR._collections.Statistics.server.deny({
+            SSR._collections.Statistics.s.deny({
                 insert(){ return true; },
                 update(){ return true; },
                 remove(){ return true; },
@@ -80,7 +80,7 @@ SSR._collections.Statistics = {
     // Add bot/prerender statistic
     // Need to bindEnvironment() because ultimately run from webapp inside of a HTTP middleware
     add( orig, req, doc ){
-        if( Meteor.isServer && SSR._collections.Statistics.server ){
+        if( Meteor.isServer && SSR._collections.Statistics.s ){
             check( orig, String );
             let o = {
                 userAgent: req.headers['user-agent'],
@@ -95,7 +95,7 @@ SSR._collections.Statistics = {
             }
             //console.debug( 'running.set', o );
             const fn = Meteor.bindEnvironment( function(){
-                SSR._collections.Statistics.server.insertAsync( o, ( err, res ) => {
+                SSR._collections.Statistics.s.insertAsync( o, ( err, res ) => {
                     //console.debug( o ); // includes the _id after the insertion
                 });
             });
