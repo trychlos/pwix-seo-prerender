@@ -1,6 +1,6 @@
 Package.describe({
     name: 'pwix:seo-prerender',
-    version: '1.0.1',
+    version: '1.0.2-rc.0',
     // Brief, one-line summary of the package.
     summary: 'A Meteor package which manages static prerendering for SEO puposes.',
     // URL to the Git repository containing the source code for this package.
