@@ -24,7 +24,7 @@ This Meteor package is installable with the usual command:
 
 ```sh
     meteor add pwix:seo-prerender
-    meteor npm install prerender-node --save
+    meteor npm install lodash prerender-node --save
 ```
 
 ## Usage
@@ -40,13 +40,15 @@ Starting with v 0.1.0, and in accordance with advices from [the Meteor Guide](ht
 Instead we check npm versions of installed packages at runtime, on server startup, in development environment.
 
 Dependencies as of v 1.0.0:
-```
+
+```js
     'lodash': '^4.17.0',
     'prerender-node': '^3.8.3'
 ```
 
 Each of these dependencies should be installed at application level:
-```
+
+```sh
     meteor npm install <package> --save
 ```
 
