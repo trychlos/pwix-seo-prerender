@@ -1,8 +1,8 @@
 Package.describe({
-    name: 'pwix:ssr',
+    name: 'pwix:seo-prerender',
     version: '1.0.0-rc',
     // Brief, one-line summary of the package.
-    summary: 'A Meteor package which manages static rendering and its storage, through a renderer server, for SEO puposes.',
+    summary: 'A Meteor package which manages static prerendering for SEO puposes.',
     // URL to the Git repository containing the source code for this package.
     git: '',
     documentation: 'README.md'
@@ -10,27 +10,20 @@ Package.describe({
 
 Package.onUse( function( api ){
     configure( api );
-    api.export([
-        'SSR'
-    ]);
-    api.mainModule( 'src/client/js/index.js', 'client' );
     api.mainModule( 'src/server/js/index.js', 'server' );
 });
 
 Package.onTest( function( api ){
     configure( api );
     api.use( 'tinytest' );
-    api.use( 'pwix:ssr' );
+    api.use( 'pwix:seo-prerender' );
     api.mainModule( 'test/js/index.js' );
 });
 
 function configure( api ){
     api.versionsFrom([ '2.9.0', '3.0-rc.0' ]);
-    api.use( 'aldeed:collection2@3.5.0 || 4.0.1' );
     api.use( 'check' );
     api.use( 'ecmascript' );
-    api.use( 'mongo' );
-    api.use( 'reactive-var' );
     api.use( 'tmeasday:check-npm-versions@1.0.2 || 2.0.0-beta.0', 'server' );
 }
 

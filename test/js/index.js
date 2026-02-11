@@ -2,7 +2,7 @@
 import { Tinytest } from "meteor/tinytest";
 
 // Import and rename a variable exported by ssr.js.
-import { name as packageName } from "meteor/pwix:ssr";
+import { name as packageName } from "meteor/pwix:seo-prerender";
 
 // Write your tests here!
 // Here is an example.
