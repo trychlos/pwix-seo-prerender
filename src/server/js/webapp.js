@@ -12,7 +12,8 @@ import { WebApp } from 'meteor/webapp';
 if( process.env.PRERENDER_SERVICE_URL ){
     console.log( 'pwix:seo-prerender found PRERENDER_SERVICE_URL=\''+process.env.PRERENDER_SERVICE_URL+'\'' );
     WebApp.connectHandlers.use(( req, res, next ) => {
-        return prerender( req, res, next );
+        console.log( 'pwix:seo-prerender requesting \''+req.url+'\' by user-agent \''+req.headers['user-agent']+'\'' );
+        prerender( req, res, next );
     });
 } else {
     console.log( 'pwix:seo-prerender PRERENDER_SERVICE_URL variable is not set, ignoring' );
