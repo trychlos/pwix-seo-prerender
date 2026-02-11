@@ -6,19 +6,8 @@
 
     Release date: 
 
-    - 
-
-### 1.0.2
-
-    Release date: 2026- 2-11
-
-    - 
-
-### 1.0.1
-
-    Release date: 2026- 2-11
-
-    - 
+    - Adds OpenGraphBot crawler
+    - Takes advantage of the PWIX_SEO_PRERENDER_LOG environment variable
 
 ### 1.0.0
 

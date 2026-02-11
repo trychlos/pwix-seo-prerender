@@ -29,7 +29,9 @@ This Meteor package is installable with the usual command:
 
 ## Usage
 
-Automatic, non configurable.
+Your web application MUST define the `PRERENDER_SERVICE_URL` to address the prerender service. if this is not done, then - obviously - the service will not be called.
+
+Your web application MAY define the `PWIX_SEO_PRERENDER_LOG`: when done, whatever its value as long as it is not empty, each incoming request will be logged with the origin user agent.
 
 ## NPM peer dependencies
 
