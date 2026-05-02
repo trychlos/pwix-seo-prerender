@@ -2,9 +2,9 @@
 
 ## ChangeLog
 
-### 1.1.0-rc.0
+### 1.1.0
 
-    Release date: 
+    Release date: 2026- 5- 2
 
     - Use pwix:logger universal logger, thus bumping minor candidate version number
     - Add a client entry point and define isBot() reactive data source
@@ -24,4 +24,4 @@
 
 ---
 P. Wieser
-- Last updated on 2026, Feb. 11th
+- Last updated on 2026, May. 2nd
