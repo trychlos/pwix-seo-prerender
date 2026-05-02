@@ -7,6 +7,7 @@
     Release date: 
 
     - Use pwix:logger universal logger, thus bumping minor candidate version number
+    - Add a client entry point and define isBot() reactive data source
 
 ### 1.0.3
 

@@ -2,7 +2,7 @@
 
 ## What is it ?
 
-A Meteor server-only package which adds to your application a prerendering feature, suitable for SEO purposes.
+A Meteor server-only package which adds to your application a prerendering feature, suitable to answer to bots crawling.
 
 Its good behavior relies on the availability somewhere of an external prerendering service, which can be either [prerender.io](https://prerender.io), [prerender.com](https://prerender.com), or your own local prerender service. The prerender service must be addressed by the `PRERENDER_SERVICE_URL` (server-side) environment variable, and must be able to address your site (be cautious when testing from a local application being developed).
 

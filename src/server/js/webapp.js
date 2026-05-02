@@ -11,6 +11,8 @@ import { WebApp } from 'meteor/webapp';
 
 const logger = Logger.get();
 
+prerender.set( 'beforeRender', Prerender.s.beforeRender );
+
 // we rely on PRERENDER_SERVICE_URL environment variable, required by prerender-node package
 if( process.env.PRERENDER_SERVICE_URL ){
     logger.debug( 'found PRERENDER_SERVICE_URL=\''+process.env.PRERENDER_SERVICE_URL+'\'' );
